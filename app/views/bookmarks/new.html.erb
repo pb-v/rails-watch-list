@@ -1,0 +1,5 @@
+<h2>Which movie do you want to bookmark in <%= @list.name %>?</h2>
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :movie %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>
