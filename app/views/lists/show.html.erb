@@ -1,0 +1,14 @@
+<h2><em><%= @list.name %></em> watch list</h2>
+<%= link_to 'Add a bookmark', new_list_bookmark_path(@list.id) %>
+<% @bookmarks.each do |bookmark| %>
+  <%= bookmark.movie.poster_url %>
+  <p>Movie title: <%= bookmark.movie.title %></p>
+  <p>Movie synopsis: <%= bookmark.movie.overview %></p>
+  <p>Movie rating: <%= bookmark.movie.rating %></p>
+  <p>Comment: <%= bookmark.content %></p>
+  <%= link_to 'Delete', list_bookmark_path(@list, bookmark),
+              method: :delete,
+              data: { confirm: 'Are you sure?' },
+              class: "btn btn-danger" %>
+  <br>
+<% end %>
