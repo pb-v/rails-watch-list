@@ -10,7 +10,7 @@
 
 puts "Destroying all records"
 List.destroy_all
-Moie.destroy_all
+Movie.destroy_all
 
 Movie.create(title: "Wonder Woman 1984", overview: "Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s", poster_url: "https://image.tmdb.org/t/p/original/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg", rating: 6.9)
 Movie.create(title: "The Shawshank Redemption", overview: "Framed in the 1940s for double murder, upstanding banker Andy Dufresne begins a new life at the Shawshank prison", poster_url: "https://image.tmdb.org/t/p/original/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg", rating: 8.7)
@@ -23,11 +23,11 @@ List.create(name: "Random")
 bookmark = Bookmark.new(comment:"Super hero")
 bookmark.movie = Movie.first
 bookmark.list = List.first
-bookmarK.save
+bookmark.save
 
 bookmark = Bookmark.new(comment:"Incredible")
-bookmark.movie = Movie[1]
-bookmark.list = List[1]
-bookmarK.save
+bookmark.movie = Movie.all.sample
+bookmark.list = List.all.sample
+bookmark.save
 
-puts "#{Movie.count} movies, and #{@list.count} created!"
+puts "#{Movie.all.count} movies, and #{List.all.count} created!"
