@@ -1,7 +1,25 @@
-<h2>My watch lists</h2>
-<% @lists.each do |list|%>
-<ul>
-  <li><%= link_to list.name, list_path(list.id) %></li>
-</ul>
-<% end %>
-<%= link_to 'Create new list', new_list_path, class:'btn btn-primary' %>
+<h2 class="mb-4">My watch lists</h2>
+
+<div class="mb-4">
+  <%= link_to 'Create new list', new_list_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <% @lists.each do |list| %>
+    <div class="col">
+      <div class="card text-white">
+        <div class="card-img-overlay d-flex align-items-end p-3"
+             style="background-image: url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg');
+                    background-size: cover;
+                    background-position: center;
+                    height: 200px;
+                    background-blend-mode: overlay;
+                    background-color: rgba(0,0,0,0.4);">
+          <h5 class="card-title mb-0">
+            <%= link_to list.name, list_path(list), class: 'stretched-link text-white text-decoration-none fw-bold' %>
+          </h5>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
